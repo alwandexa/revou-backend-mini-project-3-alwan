@@ -17,7 +17,7 @@ const shortUrl = (req: Request, res: Response) => {
       shorten: urlId,
     });
   } else {
-    res.contentType("application/json").status(200);
+    res.contentType("application/json").status(400);
     res.json({
       success: false,
       message: "url is not specified",
