@@ -2,7 +2,6 @@
   "name": "revou-backend-mini-project-3",
   "version": "1.0.0",
   "description": "revou's minii project for express module",
-  "main": "index.js",
   "scripts": {
     "start": "node -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon",
