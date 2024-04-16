@@ -12,7 +12,7 @@ const logRequest = (req: Request, res: Response, next: NextFunction) => {
 
 const shortUrl = (req: express.Request, res: express.Response) => {
   const { url } = req.body;
-
+                    
   if (url) {
     const urlId = nanoid(10);
     urlMap.set(urlId, url);
@@ -24,7 +24,7 @@ const shortUrl = (req: express.Request, res: express.Response) => {
       shorten: urlId,
     });
   } else {
-    res.contentType("application/json").status(400);
+    res.contentType("application/json").status(200);
     res.json({
       success: false,
       message: "url is not specified",
@@ -49,6 +49,7 @@ const getUrl = (req: express.Request, res: express.Response) => {
 };
 
 app.use(logRequest); 
+
 app.post("/shorten", json(), shortUrl);
 app.get("/shorten/:short_url", getUrl);
 
